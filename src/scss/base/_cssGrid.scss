@@ -1,0 +1,143 @@
+// Set the number of columns you want to use on your layout.
+$cssgrid-grid-columns: 12 !default;
+// Set the gutter between columns.
+$cssgrid-gutter-width: 30px !default;
+// Set a margin for the container sides.
+$cssgrid-outer-margin: 15px !default;
+// Set grid gap for tablet.
+$cssgrid-outer-margin-tablet: 12px !default;
+// Set grid gap for mobile.
+$cssgrid-outer-margin-mobile: 5px !default;
+
+// Create or remove breakpoints for your project
+// Syntax:
+// name SIZErem,
+$cssgrid-breakpoints:
+        xs 320px 30em,
+        sm 480px 46em,
+        md 768px 61em,
+        lg 1024px 71em,
+        xl 1200px 82em !default;
+$cssgrid-max-width: 1110px !default;
+
+
+//
+// -- Stop editing -- //
+//
+
+$gutter-compensation: $cssgrid-gutter-width * .5 * -1;
+$half-gutter-width: $cssgrid-gutter-width * .5;
+
+.container {
+  box-sizing: border-box;
+  max-width: $cssgrid-max-width;
+  margin: 0 auto;
+  padding: 0 $cssgrid-outer-margin;
+
+  @media only screen and (min-width: 1201px) {
+    padding: 0;
+  }
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, [col] 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: $cssgrid-outer-margin-mobile;
+  grid-row-gap: $cssgrid-outer-margin-mobile;
+
+  @media only screen and (min-width: 768px) {
+    grid-column-gap: $cssgrid-outer-margin-tablet;
+    grid-row-gap: $cssgrid-outer-margin-tablet;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    grid-column-gap: $cssgrid-outer-margin;
+    grid-row-gap: $cssgrid-outer-margin;
+  }
+}
+
+
+@each $breakpoint in $cssgrid-breakpoints {
+  $name: nth($breakpoint, 1);
+  $size: nth($breakpoint, 2);
+  $container: nth($breakpoint, 3);
+  @media only screen and (min-width: $size) {
+
+    @for $i from 1 through $cssgrid-grid-columns {
+      .col-#{$name}-#{$i} {
+        grid-column: span #{$i};
+      }
+    }
+
+    @for $c from 1 through $cssgrid-grid-columns + 1 {
+      @for $r from 1 through $cssgrid-grid-columns + 1 {
+        .gridCol-#{$name}-#{$c}-#{$r} {
+          grid-column: #{$c}/#{$r};
+        }
+        .gridRow-#{$name}-#{$c}-#{$r} {
+          grid-row: #{$c}/#{$r};
+        }
+      }
+    }
+
+    .start-#{$name} {
+      justify-content: flex-start;
+    }
+
+    .center-#{$name} {
+      justify-content: center;
+    }
+
+    .end-#{$name} {
+      justify-content: flex-end;
+    }
+
+    .top-#{$name} {
+      align-items: flex-start;
+    }
+
+    .middle-#{$name} {
+      align-items: center;
+    }
+
+    .bottom-#{$name} {
+      align-items: flex-end;
+    }
+
+    .self-top-#{$name} {
+      align-self: flex-start;
+    }
+
+    .self-middle-#{$name} {
+      align-self: center;
+    }
+
+    .self-bottom-#{$name} {
+      align-self: flex-end;
+    }
+
+    .around-#{$name} {
+      justify-content: space-around;
+    }
+
+    .between-#{$name} {
+      justify-content: space-between;
+    }
+
+    .first-#{$name} {
+      order: -1;
+    }
+
+    .last-#{$name} {
+      order: 1;
+    }
+  }
+}

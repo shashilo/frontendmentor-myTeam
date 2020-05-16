@@ -1,0 +1,146 @@
+.home {
+  .hero {
+    @include media(">1350px") {
+      &::before {
+        background: url("../assets/backgrounds/bg-pattern-home-1.svg") no-repeat;
+        content: '';
+        height: 200px;
+        left: -100px;
+        position: absolute;
+        width: 200px;
+      }
+    }
+
+    .container {
+      position: relative;
+
+      &::after {
+        content: url("../assets/backgrounds/bg-pattern-home-2.svg");
+        display: block;
+        position: absolute;
+        bottom: -.8rem;
+        right: 50%;
+        transform: translateX(50%);
+
+        @include media(">=lg") {
+          right: 0;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  .services {
+    .accentBorder::before {
+      margin-bottom: 5.4rem;
+    }
+
+    &::after {
+      content: url("../assets/backgrounds/bg-pattern-home-3.svg");
+
+      @include media("<xl") {
+        top: 0;
+        bottom: inherit;
+      }
+    }
+
+    .services__items {
+      @include media(">=md") {
+        margin-top: 5.4rem;
+      }
+    }
+
+    .services__item {
+      margin-bottom: 4.8rem;
+      text-align: center;
+
+      @include media(">=md") {
+        margin-bottom: 3.2rem;
+        text-align: left;
+      }
+
+      &::before {
+        @include media(">=md") {
+          float: left;
+          padding-right: 2.3rem;
+        }
+      }
+
+      &:first-child::before {
+        content: url("../assets/icons/icon-person.svg");
+      }
+
+      &:nth-child(2)::before {
+        content: url("../assets/icons/icon-cog.svg");
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+
+        &::before {
+          content: url("../assets/icons/icon-chart.svg");
+        }
+      }
+
+      h3 {
+        color: var(--lightCoral);
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .successStories {
+    &::before {
+      content: url("../assets/backgrounds/bg-pattern-home-4-about-3.svg");
+    }
+
+    &::after {
+      content: url("../assets/backgrounds/bg-pattern-home-5.svg");
+      bottom: -.8rem;
+    }
+  }
+
+  .testimonials {
+    display: grid;
+    grid-gap: 3rem;
+
+    @include media(">lg") {
+      grid-template-columns: repeat( 3, 1fr );
+    }
+
+    .testimonials__item {
+      display: grid;
+      grid-gap: 2.8rem;
+      text-align: center;
+
+      &::before {
+        content: url("../assets/icons/icon-quotes.svg");
+        margin-bottom: -58px;
+      }
+
+      h3 {
+        color: var(--raptureBlue);
+      }
+
+      p {
+        margin: 0;
+      }
+
+      em {
+        font-size: 1.3rem;
+        font-weight: 500;
+        line-height: 1.8rem;
+      }
+
+      img {
+        border: .2rem solid var(--raptureBlue);
+        border-radius: 50%;
+        margin: auto;
+        width: 6.2rem;
+      }
+    }
+  }
+}

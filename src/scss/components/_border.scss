@@ -1,0 +1,27 @@
+.accentBorder {
+  &::before {
+    background-color: var(--primaryColor);
+    content: '';
+    display: block;
+    height: .4rem;
+    width: 5rem;
+  }
+
+  &.-alternative {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+
+  &.-secondary {
+    &::before {
+      background-color: var(--raptureBlue);
+    }
+  }
+
+  &.-tertiary {
+    &::before {
+      background-color: var(--tertiaryColor);
+    }
+  }
+}

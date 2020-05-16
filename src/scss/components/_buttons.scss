@@ -1,0 +1,45 @@
+.btn {
+  border-radius: 2.4rem;
+  display: inline-block;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  padding: 0.6rem 3rem;
+  transition: 300ms ease all;
+
+  &:disabled,
+  &[disabled] {
+    opacity: 25%;
+  }
+}
+
+.btnPrimary {
+  @extend .btn;
+  background: transparent;
+  border: .2rem solid var(--white);
+  color: var(--white);
+
+  &:hover {
+    background: var(--white);
+    color: var(--primaryColor);
+  }
+
+  &.-dark {
+    border-color: var(--sacrementoStateGreen);
+    color: var(--sacrementoStateGreen);
+
+    &:hover {
+      background: var(--sacrementoStateGreen);
+      color: var(--white);
+    }
+  }
+}
+
+.btnSecondary {
+  @extend .btn;
+  background: var(--white);
+  color: var(--primaryColor);
+
+  &:hover {
+    background: var(--secondaryColor);
+  }
+}

@@ -1,0 +1,81 @@
+.-contentSmall {
+  @include contentSmall();
+}
+
+// Backgrounds
+.-bgPrimary {
+  background-color: var(--sacrementoStateGreen);
+}
+
+.-bgSecondary {
+  background-color: var(--midnightGreen);
+}
+
+.-bgTertiary {
+  background-color: var(--tertiaryColor);
+}
+
+
+// Colors
+.-colorSacremento {
+  color: var(--sacrementoStateGreen);
+}
+
+.-colorCoral {
+  color: var(--lightCoral);
+}
+
+.-colorRaptor {
+  color: var(--raptureBlue);
+}
+
+// Content
+.-t-center {
+  text-align: center !important;
+}
+
+// Margins
+.-m-0 {
+  margin: 0 !important;
+}
+
+.-m-auto {
+  margin: auto;
+}
+
+.-mt-130 {
+  margin-top: 13rem !important;
+}
+
+.-mb-56 {
+  margin-bottom: 5.6rem !important;
+}
+
+.-mb-64 {
+  margin-bottom: 6.4rem !important;
+}
+
+// Paddings
+.-p-0 {
+  padding: 0;
+}
+
+.-pb-250 {
+  padding-bottom: 25rem !important;
+}
+
+// Opacities
+.-o-60 {
+  opacity: 60%;
+}
+
+// Media queries to hide/show elements
+.-hide-below-sm {
+  @include media("<lg") {
+    display: none;
+  }
+}
+
+.flexbox {
+  display: flex;
+}

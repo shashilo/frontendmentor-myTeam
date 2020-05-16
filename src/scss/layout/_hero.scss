@@ -1,0 +1,29 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  @include media("<lg") {
+    text-align: center;
+  }
+
+  h1 {
+    @include media("<lg") {
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @include media("<lg") {
+      @include contentSmall();
+    }
+  }
+
+  .accentBorder::before {
+    @include media("<lg") {
+      display: none;
+    }
+  }
+}

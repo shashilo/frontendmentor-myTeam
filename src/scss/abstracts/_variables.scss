@@ -1,0 +1,21 @@
+:root {
+  // Primary colors
+  --midnightGreen: #014E56;
+  --lightCoral: #F67E7E;
+  --white: #ffffff;
+
+  // Secondary colors
+  --raptureBlue: #79C8C7;
+  --policeBlue: #2C6269;
+  --deepJungleGreen: #004047;
+  --sacrementoStateGreen: #012F34;
+  --darkGreen: #002529;
+
+  // Most used colors
+  --primaryColor: var(--midnightGreen);
+  --secondaryColor: var(--raptureBlue);
+  --tertiaryColor: var(--lightCoral);
+}
+
+$maxWidth: 1110px;
+$maxWidthQuery: "<=" + $maxWidth;

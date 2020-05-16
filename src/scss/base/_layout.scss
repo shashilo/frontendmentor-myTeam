@@ -1,0 +1,11 @@
+.container {
+  padding: 0 2.3rem;
+
+  @include media(">sm") {
+    padding: 0 3.4rem;
+  }
+
+  @include media(">md") {
+    padding: 0 4rem;
+  }
+}

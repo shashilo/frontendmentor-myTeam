@@ -1,0 +1,134 @@
+/* menu */
+
+.menu {
+  @include media("<md") {
+    align-items: flex-start;
+    clear: both;
+    display: grid;
+    grid-gap: 24px;
+    grid-template-rows: repeat(3, minmax(28px, 30px));
+    height: 100vh;
+    position: fixed;
+    overflow: auto;
+    right: -100vw;
+    padding: 112px 0;
+    top: 0;
+    transition: right 500ms cubic-bezier(0.85, 0.02, 0.15, 0.78);
+    z-index: 1000;
+  }
+
+  @include media('<md') {
+    min-width: 255px;
+  }
+
+  &::before {
+    background-color: rgba(0, 0, 0, 0.5);
+    content: '';
+    height: 100vh;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    transition: opacity 400ms ease;
+    width: 100vw;
+    z-index: -1;
+  }
+
+  &::after {
+    background: var(--policeBlue);
+    content: '';
+    height: 100vh;
+    width: 255px;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+}
+
+// Menu Icon
+.menu-icon {
+  cursor: pointer;
+  display: block;
+  padding: 1.2rem 0;
+  position: absolute;
+  right: 40px;
+  user-select: none;
+  justify-self: end;
+  z-index: 2000;
+
+  .navicon {
+    background: #fff;
+    display: block;
+    height: 3px;
+    position: relative;
+    transition: all .2s ease-out;
+    top: 0;
+    width: 2.5rem;
+
+    &::before,
+    &::after {
+      background: #fff;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all .2s ease-out;
+      width: 100%;
+    }
+
+    &::before {
+      top: 8px;
+    }
+
+    &::after {
+      top: -8px
+    }
+  }
+}
+
+.menu-btn {
+  display: none;
+
+  &:checked ~ .menu {
+
+    @include media('<md') {
+      right: 0;
+    }
+
+    &::before {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &:checked ~ .menu-icon {
+    position: fixed;
+
+    .navicon:before {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &:checked ~ .menu-icon .navicon {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  &:checked ~ .menu-icon:not(.steps) .navicon:before {
+    top: 0;
+  }
+
+  &:checked ~ .menu-icon:not(.steps) .navicon:after {
+    opacity: 0;
+    display: none;
+  }
+}
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+  .header .menu-icon {
+    display: none;
+  }
+}
