@@ -205,7 +205,7 @@ a.skip-main:hover {
   overflow: visible;
 }
 
-@include media(">md") {
+@include media(">=md") {
   .header .menu-icon {
     display: none;
   }
