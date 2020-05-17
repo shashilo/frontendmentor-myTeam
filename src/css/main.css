@@ -4358,7 +4358,7 @@ em {
   font-size: 1.5rem;
   line-height: 2.5rem;
   text-align: center;
-  padding: 3.5rem 4.8rem;
+  padding: 3.5rem 4rem;
   position: absolute;
   width: 100%; }
 
@@ -4367,7 +4367,12 @@ em {
 
 .card__back {
   background: var(--darkGreen);
+  padding: 3.5rem 2.5rem;
   transform: rotateY(180deg); }
+  @media (min-width: 1024px) {
+    .card__back {
+      padding-left: 4.8rem;
+      padding-right: 4.8rem; } }
 
 .card__input:checked + .card__content {
   transform: rotateY(180deg);
