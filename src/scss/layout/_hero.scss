@@ -1,6 +1,15 @@
 .hero {
   position: relative;
+  padding: 8rem 0 10.8rem;
   overflow: hidden;
+
+  @include media(">=md") {
+    padding: 11.2rem 0;
+  }
+
+  @include media(">=lg") {
+    padding: 12rem 0;
+  }
 
   @include media("<lg") {
     text-align: center;

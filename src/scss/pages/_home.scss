@@ -1,5 +1,7 @@
 .home {
   .hero {
+    padding: 0;
+
     @include media(">1350px") {
       &::before {
         background: url("../assets/backgrounds/bg-pattern-home-1.svg") no-repeat;
@@ -45,9 +47,7 @@
     }
 
     .services__items {
-      @include media(">=md") {
-        margin-top: 5.4rem;
-      }
+      margin-top: 5.4rem;
     }
 
     .services__item {
@@ -66,7 +66,7 @@
         }
       }
 
-      &:first-child::before {
+      &:nth-child(1)::before {
         content: url("../assets/icons/icon-person.svg");
       }
 
@@ -74,7 +74,7 @@
         content: url("../assets/icons/icon-cog.svg");
       }
 
-      &:last-child {
+      &:nth-child(3) {
         margin-bottom: 0;
 
         &::before {
@@ -133,13 +133,6 @@
         font-size: 1.3rem;
         font-weight: 500;
         line-height: 1.8rem;
-      }
-
-      img {
-        border: .2rem solid var(--raptureBlue);
-        border-radius: 50%;
-        margin: auto;
-        width: 6.2rem;
       }
     }
   }

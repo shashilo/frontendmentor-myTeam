@@ -14,6 +14,10 @@
 @import "components/buttons";
 @import "components/border";
 @import "components/footerCta";
+@import "components/card";
+@import "components/avatar";
+@import "components/socialMedia";
+@import "components/iconGroup";
 
 @import "layout/header";
 @import "layout/hero";
@@ -21,3 +25,5 @@
 @import "layout/nav";
 
 @import "pages/home";
+@import "pages/about";
+@import "pages/contact";

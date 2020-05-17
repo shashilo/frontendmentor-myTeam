@@ -33,7 +33,7 @@ nav {
       display: block;
       padding: 0 4.8rem;
 
-      @include media(">=lg") {
+      @include media(">=md") {
         display: inline-block;
         margin: 0 2rem;
         padding: 0;

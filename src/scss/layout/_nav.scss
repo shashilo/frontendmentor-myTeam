@@ -44,6 +44,14 @@
     top: 0;
     z-index: -1;
   }
+
+  > li::after {
+    content: url("../../assets/backgrounds/bg-pattern-about-1-mobile-nav-1.svg");
+    display: none;
+    right: -10rem;
+    bottom: 0;
+    position: absolute;
+  }
 }
 
 // Menu Icon
@@ -100,6 +108,10 @@
       opacity: 1;
       pointer-events: all;
     }
+
+    > li::after {
+      display: block;
+    }
   }
 
   &:checked ~ .menu-icon {
@@ -125,7 +137,25 @@
   }
 }
 
-/* 48em = 768px */
+a.skip-main {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+}
+
+a.skip-main:active,
+a.skip-main:focus,
+a.skip-main:hover {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
 
 @media (min-width: 48em) {
   .header .menu-icon {

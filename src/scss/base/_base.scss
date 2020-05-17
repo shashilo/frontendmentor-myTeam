@@ -21,9 +21,19 @@ body {
 
 section {
   overflow: hidden;
-  padding-top: 14rem;
-  padding-bottom: 14rem;
+  padding-top: 8.8rem;
+  padding-bottom: 8.8rem;
   position: relative;
+
+  @include media(">=md") {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  @include media(">=lg") {
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+  }
 
   &::before {
     display: block;

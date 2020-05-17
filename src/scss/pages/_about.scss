@@ -1,0 +1,105 @@
+.about {
+
+  h2 {
+    margin-bottom: 4.8rem;
+
+    @include media(">=lg") {
+      margin-bottom: 6.4rem;
+    }
+  }
+
+  .accentBorder::before {
+    margin-bottom: 4rem;
+
+    @include media("<md") {
+      display: none;
+    }
+  }
+
+  .hero {
+    &::after {
+      content: url("../assets/backgrounds/bg-pattern-about-1-mobile-nav-1.svg");
+      right: -10rem;
+      bottom: -.8rem;
+      position: absolute;
+
+      @include media("<md") {
+        bottom: -10rem;
+      }
+    }
+  }
+
+}
+
+.directors {
+  &::before {
+    content: url("../assets/backgrounds/bg-pattern-about-2-contact-1.svg");
+    left: -10rem;
+
+    @include media("<md") {
+      top: -10rem;
+    }
+  }
+
+  &::after {
+    content: url("../assets/backgrounds/bg-pattern-home-4-about-3.svg");
+    bottom: -8px;
+  }
+
+  .directors__team {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 5.2rem;
+    padding-bottom: 2.8rem;
+
+    @include media(">=md") {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 1.1rem;
+      grid-row-gap: 7.6rem;
+    }
+
+    @include media(">=lg") {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 3rem;
+    }
+  }
+}
+
+.clients {
+  &::before {
+    content: url("../assets/backgrounds/bg-pattern-about-4.svg");
+
+    @include media("<sm") {
+      left: -10rem;
+
+    }
+    @include media("<lg") {
+      top: -10rem;
+    }
+  }
+  .clients__list {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-gap: 5.6rem;
+
+    @include media(">=md") {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 8rem;
+    }
+
+    img {
+      width: 50%;
+
+      @include media(">=md") {
+        width: 100%;
+      }
+
+      &.--large {
+        max-width: 9.6rem;
+      }
+    }
+  }
+}

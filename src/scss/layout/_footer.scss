@@ -100,16 +100,6 @@ footer {
           margin-left: 0;
         }
       }
-
-      svg {
-        path {
-          transition: 300ms ease all;
-        }
-
-        &:hover path {
-          fill: var(--lightCoral);
-        }
-      }
     }
 
     .footer__copyright {

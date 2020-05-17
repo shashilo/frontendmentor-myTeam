@@ -4085,6 +4085,9 @@ template {
 .-bgTertiary {
   background-color: var(--tertiaryColor); }
 
+.-bgDeepGreen {
+  background-color: var(--deepJungleGreen); }
+
 .-colorSacremento {
   color: var(--sacrementoStateGreen); }
 
@@ -4159,9 +4162,17 @@ body {
 
 section {
   overflow: hidden;
-  padding-top: 14rem;
-  padding-bottom: 14rem;
+  padding-top: 8.8rem;
+  padding-bottom: 8.8rem;
   position: relative; }
+  @media (min-width: 768px) {
+    section {
+      padding-top: 10rem;
+      padding-bottom: 10rem; } }
+  @media (min-width: 1024px) {
+    section {
+      padding-top: 14rem;
+      padding-bottom: 14rem; } }
   section::before {
     display: block;
     position: absolute;
@@ -4212,13 +4223,14 @@ h1 {
       line-height: 5.6rem; } }
   @media (min-width: 1024px) {
     h1 {
-      font-size: 10rem;
-      line-height: 10rem; } }
+      font-size: 6.4rem;
+      line-height: 5.6rem; } }
   h1 span {
     color: var(--tertiaryColor); }
-  h1 .-small {
-    font-size: 6.4rem;
-    line-height: 5.6rem; }
+  @media (min-width: 1024px) {
+    h1.--larger {
+      font-size: 10rem;
+      line-height: 10rem; } }
 
 h2 {
   font-size: 3.2rem;
@@ -4233,6 +4245,9 @@ h2 {
 h3 {
   font-size: 1.8rem;
   line-height: 2.8rem; }
+
+em {
+  font-weight: 500; }
 
 .container {
   padding: 0 2.3rem; }
@@ -4297,17 +4312,110 @@ h3 {
     bottom: -3rem;
     content: url("../assets/backgrounds/bg-pattern-home-6-about-5.svg");
     top: auto; }
+  .footer__cta .row h2 {
+    margin: 0; }
   @media (max-width: 767px) {
     .footer__cta .row {
       display: block; }
+      .footer__cta .row h2 {
+        margin-bottom: 2.4rem; }
     .footer__cta .flexbox {
       display: block;
-      text-align: center; }
-    .footer__cta h2 {
-      margin-bottom: 2.4rem; } }
+      text-align: center; } }
   @media (min-width: 1200px) {
     .footer__cta::before {
       bottom: -.8rem; } }
+
+.card {
+  position: relative;
+  height: 253px;
+  perspective: 500px; }
+  .card input {
+    display: none; }
+
+.card__content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.1);
+  transition: transform 1s;
+  transform-style: preserve-3d; }
+  .card__content:hover {
+    cursor: pointer; }
+    .card__content:hover::after {
+      background-color: var(--raptureBlue); }
+  .card__content::after {
+    align-items: center;
+    background-color: var(--lightCoral);
+    border-radius: 50%;
+    bottom: -2.7rem;
+    content: url("../../assets/icons/icon-cross.svg");
+    cursor: pointer;
+    display: flex;
+    height: 5.6rem;
+    left: 50%;
+    justify-content: center;
+    position: absolute;
+    transform: translateX(-50%);
+    transition: 400ms ease all;
+    padding-top: 4px;
+    width: 5.6rem; }
+  .card__content p {
+    margin: .8rem 0 2.4rem; }
+  .card__content .socialMedia {
+    display: grid;
+    grid-gap: 1.6rem;
+    grid-template-columns: repeat(2, 2.5rem);
+    justify-content: center; }
+
+.card__front,
+.card__back {
+  background: var(--sacrementoStateGreen);
+  backface-visibility: hidden;
+  height: 100%;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  padding: 3.5rem 4.8rem;
+  position: absolute;
+  width: 100%; }
+
+.card__front h3 {
+  padding-top: 1rem; }
+
+.card__back {
+  background: var(--darkGreen);
+  transform: rotateY(180deg); }
+
+.card__input:checked + .card__content {
+  transform: rotateY(180deg);
+  transition: transform 0.5s; }
+  .card__input:checked + .card__content::after {
+    background-color: var(--raptureBlue);
+    transform: translateX(-50%) rotate(45deg); }
+
+.avatar {
+  border: 0.2rem solid var(--raptureBlue);
+  border-radius: 50%;
+  margin: auto;
+  width: 9.6rem; }
+  .avatar.--small {
+    width: 6.2rem; }
+
+.socialMedia svg path {
+  transition: 300ms ease all; }
+
+.socialMedia svg:hover path {
+  fill: var(--lightCoral); }
+
+.iconGroup:nth-child(1)::before {
+  content: url("../assets/icons/icon-person.svg"); }
+
+.iconGroup:nth-child(2)::before {
+  content: url("../assets/icons/icon-cog.svg"); }
+
+.iconGroup:nth-child(3)::before {
+  content: url("../assets/icons/icon-chart.svg"); }
 
 header {
   padding-top: 4.8rem; }
@@ -4333,7 +4441,7 @@ nav {
     nav ul a {
       display: block;
       padding: 0 4.8rem; }
-      @media (min-width: 1024px) {
+      @media (min-width: 768px) {
         nav ul a {
           display: inline-block;
           margin: 0 2rem;
@@ -4348,7 +4456,14 @@ nav {
 
 .hero {
   position: relative;
+  padding: 8rem 0 10.8rem;
   overflow: hidden; }
+  @media (min-width: 768px) {
+    .hero {
+      padding: 11.2rem 0; } }
+  @media (min-width: 1024px) {
+    .hero {
+      padding: 12rem 0; } }
   @media (max-width: 1023px) {
     .hero {
       text-align: center; } }
@@ -4436,10 +4551,6 @@ footer {
         margin-left: 1.1rem; }
         footer .container .footer__social li:first-child {
           margin-left: 0; }
-      footer .container .footer__social svg path {
-        transition: 300ms ease all; }
-      footer .container .footer__social svg:hover path {
-        fill: var(--lightCoral); }
     footer .container .footer__copyright {
       order: 6;
       margin-top: 1.6rem; }
@@ -4494,6 +4605,13 @@ footer {
   top: 0;
   z-index: -1; }
 
+.menu > li::after {
+  content: url("../../assets/backgrounds/bg-pattern-about-1-mobile-nav-1.svg");
+  display: none;
+  right: -10rem;
+  bottom: 0;
+  position: absolute; }
+
 .menu-icon {
   cursor: pointer;
   display: block;
@@ -4532,6 +4650,8 @@ footer {
   .menu-btn:checked ~ .menu::before {
     opacity: 1;
     pointer-events: all; }
+  .menu-btn:checked ~ .menu > li::after {
+    display: block; }
   .menu-btn:checked ~ .menu-icon {
     position: fixed; }
     .menu-btn:checked ~ .menu-icon .navicon:before {
@@ -4545,33 +4665,51 @@ footer {
     opacity: 0;
     display: none; }
 
-/* 48em = 768px */
+a.skip-main {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden; }
+
+a.skip-main:active,
+a.skip-main:focus,
+a.skip-main:hover {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible; }
+
 @media (min-width: 48em) {
   .header .menu-icon {
     display: none; } }
 
-@media (min-width: 1351px) {
-  .home .hero::before {
-    background: url("../assets/backgrounds/bg-pattern-home-1.svg") no-repeat;
-    content: '';
-    height: 200px;
-    left: -100px;
-    position: absolute;
-    width: 200px; } }
-
-.home .hero .container {
-  position: relative; }
-  .home .hero .container::after {
-    content: url("../assets/backgrounds/bg-pattern-home-2.svg");
-    display: block;
-    position: absolute;
-    bottom: -.8rem;
-    right: 50%;
-    transform: translateX(50%); }
-    @media (min-width: 1024px) {
-      .home .hero .container::after {
-        right: 0;
-        transform: translateX(0); } }
+.home .hero {
+  padding: 0; }
+  @media (min-width: 1351px) {
+    .home .hero::before {
+      background: url("../assets/backgrounds/bg-pattern-home-1.svg") no-repeat;
+      content: '';
+      height: 200px;
+      left: -100px;
+      position: absolute;
+      width: 200px; } }
+  .home .hero .container {
+    position: relative; }
+    .home .hero .container::after {
+      content: url("../assets/backgrounds/bg-pattern-home-2.svg");
+      display: block;
+      position: absolute;
+      bottom: -.8rem;
+      right: 50%;
+      transform: translateX(50%); }
+      @media (min-width: 1024px) {
+        .home .hero .container::after {
+          right: 0;
+          transform: translateX(0); } }
 
 .home .services .accentBorder::before {
   margin-bottom: 5.4rem; }
@@ -4583,9 +4721,8 @@ footer {
       top: 0;
       bottom: inherit; } }
 
-@media (min-width: 768px) {
-  .home .services .services__items {
-    margin-top: 5.4rem; } }
+.home .services .services__items {
+  margin-top: 5.4rem; }
 
 .home .services .services__item {
   margin-bottom: 4.8rem;
@@ -4598,13 +4735,13 @@ footer {
     .home .services .services__item::before {
       float: left;
       padding-right: 2.3rem; } }
-  .home .services .services__item:first-child::before {
+  .home .services .services__item:nth-child(1)::before {
     content: url("../assets/icons/icon-person.svg"); }
   .home .services .services__item:nth-child(2)::before {
     content: url("../assets/icons/icon-cog.svg"); }
-  .home .services .services__item:last-child {
+  .home .services .services__item:nth-child(3) {
     margin-bottom: 0; }
-    .home .services .services__item:last-child::before {
+    .home .services .services__item:nth-child(3)::before {
       content: url("../assets/icons/icon-chart.svg"); }
   .home .services .services__item h3 {
     color: var(--lightCoral); }
@@ -4639,8 +4776,94 @@ footer {
       font-size: 1.3rem;
       font-weight: 500;
       line-height: 1.8rem; }
-    .home .testimonials .testimonials__item img {
-      border: 0.2rem solid var(--raptureBlue);
-      border-radius: 50%;
-      margin: auto;
-      width: 6.2rem; }
+
+.about h2 {
+  margin-bottom: 4.8rem; }
+  @media (min-width: 1024px) {
+    .about h2 {
+      margin-bottom: 6.4rem; } }
+
+.about .accentBorder::before {
+  margin-bottom: 4rem; }
+  @media (max-width: 767px) {
+    .about .accentBorder::before {
+      display: none; } }
+
+.about .hero::after {
+  content: url("../assets/backgrounds/bg-pattern-about-1-mobile-nav-1.svg");
+  right: -10rem;
+  bottom: -.8rem;
+  position: absolute; }
+  @media (max-width: 767px) {
+    .about .hero::after {
+      bottom: -10rem; } }
+
+.directors::before {
+  content: url("../assets/backgrounds/bg-pattern-about-2-contact-1.svg");
+  left: -10rem; }
+  @media (max-width: 767px) {
+    .directors::before {
+      top: -10rem; } }
+
+.directors::after {
+  content: url("../assets/backgrounds/bg-pattern-home-4-about-3.svg");
+  bottom: -8px; }
+
+.directors .directors__team {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 5.2rem;
+  padding-bottom: 2.8rem; }
+  @media (min-width: 768px) {
+    .directors .directors__team {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 1.1rem;
+      grid-row-gap: 7.6rem; } }
+  @media (min-width: 1024px) {
+    .directors .directors__team {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 3rem; } }
+
+.clients::before {
+  content: url("../assets/backgrounds/bg-pattern-about-4.svg"); }
+  @media (max-width: 479px) {
+    .clients::before {
+      left: -10rem; } }
+  @media (max-width: 1023px) {
+    .clients::before {
+      top: -10rem; } }
+
+.clients .clients__list {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  grid-gap: 5.6rem; }
+  @media (min-width: 768px) {
+    .clients .clients__list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 8rem; } }
+  .clients .clients__list img {
+    width: 50%; }
+    @media (min-width: 768px) {
+      .clients .clients__list img {
+        width: 100%; } }
+    .clients .clients__list img.--large {
+      max-width: 9.6rem; }
+
+.contact .hero::after {
+  content: url("../assets/backgrounds/bg-pattern-contact-2.svg");
+  right: -10rem;
+  bottom: -.8rem; }
+  @media (max-width: 767px) {
+    .contact .hero::after {
+      bottom: -10rem; } }
+
+.contact .hero .container::before {
+  content: url("../assets/backgrounds/bg-pattern-about-2-contact-1.svg");
+  position: absolute;
+  left: -10rem; }
+  @media (max-width: 767px) {
+    .contact .hero .container::before {
+      display: none; } }

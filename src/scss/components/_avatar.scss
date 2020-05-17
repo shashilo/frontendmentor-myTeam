@@ -1,0 +1,10 @@
+.avatar {
+  border: .2rem solid var(--raptureBlue);
+  border-radius: 50%;
+  margin: auto;
+  width: 9.6rem;
+
+  &.--small {
+    width: 6.2rem;
+  }
+}
