@@ -4697,7 +4697,7 @@ a.skip-main:hover {
   height: auto;
   overflow: visible; }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .header .menu-icon {
     display: none; } }
 
