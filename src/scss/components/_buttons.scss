@@ -1,5 +1,6 @@
 .btn {
   border-radius: 2.4rem;
+  cursor: pointer;
   display: inline-block;
   font-size: 1.8rem;
   line-height: 2.8rem;
@@ -23,7 +24,7 @@
     color: var(--primaryColor);
   }
 
-  &.-dark {
+  &.--dark {
     border-color: var(--sacrementoStateGreen);
     color: var(--sacrementoStateGreen);
 
@@ -37,6 +38,7 @@
 .btnSecondary {
   @extend .btn;
   background: var(--white);
+  border: none;
   color: var(--primaryColor);
 
   &:hover {

@@ -66,20 +66,8 @@
         }
       }
 
-      &:nth-child(1)::before {
-        content: url("../assets/icons/icon-person.svg");
-      }
-
-      &:nth-child(2)::before {
-        content: url("../assets/icons/icon-cog.svg");
-      }
-
       &:nth-child(3) {
         margin-bottom: 0;
-
-        &::before {
-          content: url("../assets/icons/icon-chart.svg");
-        }
       }
 
       h3 {

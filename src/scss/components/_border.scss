@@ -7,19 +7,19 @@
     width: 5rem;
   }
 
-  &.-alternative {
+  &.--alternative {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
   }
 
-  &.-secondary {
+  &.--secondary {
     &::before {
       background-color: var(--raptureBlue);
     }
   }
 
-  &.-tertiary {
+  &.--tertiary {
     &::before {
       background-color: var(--tertiaryColor);
     }

@@ -1,0 +1,38 @@
+%formStyle {
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: .1rem solid var(--white);
+  color: var(--white);
+  font-family: 'Livvic', sans-serif;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  padding: 1.4rem 1.6rem;
+  transition: 300ms ease all;
+  width: 100%;
+
+  &::placeholder {
+    color: var(--white);
+    opacity: 60%;
+  }
+
+  &:hover {
+    border-bottom-color: var(--raptureBlue);
+    cursor: pointer;
+  }
+}
+
+input {
+  &[type="text"] {
+    @extend %formStyle;
+  }
+
+  &[type="submit"] {
+    font-family: 'Livvic', sans-serif;
+  }
+}
+
+textarea {
+  @extend %formStyle;
+}

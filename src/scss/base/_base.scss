@@ -49,11 +49,11 @@ section {
     right: 0;
   }
 
-  &.-bgTopHalf::before {
+  &.--bgTopHalf::before {
     left: -10rem;
   }
 
-  &.-bgBottomHalf::after {
+  &.--bgBottomHalf::after {
     right: -10rem;
   }
 }

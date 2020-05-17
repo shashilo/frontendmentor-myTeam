@@ -19,9 +19,14 @@ nav {
   grid-template-columns: auto 1fr;
   grid-gap: 6rem;
 
-  svg, img {
+  img {
     @include media("<md") {
       width: 12.8rem;
+    }
+
+    @include media(">=lg") {
+      position: relative;
+      top: .3rem;
     }
   }
 
@@ -41,7 +46,7 @@ nav {
     }
   }
 
-  .-contact {
+  .--contact {
     margin-left: 48px;
 
     @include media(">=md") {
