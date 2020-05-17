@@ -3,7 +3,7 @@ const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 
 //compile scss into css
-function style() {
+function build() {
     //1.where is my scss
     return gulp.src('src/scss/**/*.scss') //gets all files ending with .scss in src/scss
     //2. pass that file through sass compiler
@@ -21,10 +21,10 @@ function watch() {
             index: "/index.html"
         }
     });
-    gulp.watch('src/scss/**/*.scss', style);
+    gulp.watch('src/scss/**/*.scss', build);
     gulp.watch('src/*.html').on('change',browserSync.reload);
     gulp.watch('src/js/**/*.js').on('change', browserSync.reload);
 }
 
-exports.style = style;
+exports.build = build;
 exports.watch = watch;
