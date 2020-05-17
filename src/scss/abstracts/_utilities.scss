@@ -1,3 +1,4 @@
+// Text
 .-contentSmall {
   @include contentSmall();
 }
@@ -80,6 +81,8 @@
   }
 }
 
+
+// Display
 .-flexbox {
   display: flex;
 }

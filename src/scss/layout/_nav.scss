@@ -1,66 +1,114 @@
-/* menu */
+nav {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 6rem;
 
-.menu {
-  @include media("<md") {
-    align-items: flex-start;
-    clear: both;
-    display: grid;
-    grid-gap: 24px;
-    grid-template-rows: repeat(3, minmax(28px, 30px));
-    height: 100vh;
-    position: fixed;
-    overflow: auto;
-    right: -100vw;
-    padding: 112px 0;
-    top: 0;
-    transition: right 500ms cubic-bezier(0.85, 0.02, 0.15, 0.78);
-    z-index: 1000;
+  img {
+    @include media("<md") {
+      width: 12.8rem;
+    }
+
+    @include media(">=lg") {
+      position: relative;
+      top: .3rem;
+    }
   }
 
-  @include media('<md') {
-    min-width: 255px;
+  .menu {
+    display: flex;
+    align-items: center;
+
+    @include media("<md") {
+      align-items: flex-start;
+      clear: both;
+      display: flex;
+      flex-flow: column;
+      height: 100vh;
+      position: fixed;
+      overflow: auto;
+      right: -100vw;
+      padding: 11.2rem 0;
+      top: 0;
+      transition: right 500ms cubic-bezier(0.85, 0.02, 0.15, 0.78);
+      z-index: 1000;
+    }
+
+    @include media('<md') {
+      min-width: 25.5rem;
+    }
+
+    &::before {
+      background-color: rgba(0, 0, 0, 0.5);
+      content: '';
+      height: 100vh;
+      position: fixed;
+      pointer-events: none;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      transition: opacity 400ms ease;
+      width: 100vw;
+      z-index: -1;
+    }
+
+    &::after {
+      background: var(--policeBlue);
+      content: '';
+      height: 100vh;
+      width: 25.5rem;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+
+    > li {
+      @include media("<md") {
+        width: 100%;
+      }
+
+      &::after {
+        content: url("../../assets/backgrounds/bg-pattern-about-1-mobile-nav-1.svg");
+        display: none;
+        right: -10rem;
+        bottom: 0;
+        position: absolute;
+      }
+    }
+
+    li:not(.--contact) a {
+      display: block;
+      padding: 1.2rem 4.8rem;
+
+      @include media(">=md") {
+        display: inline-block;
+        margin: 0 2rem;
+        padding: 0;
+      }
+    }
   }
 
-  &::before {
-    background-color: rgba(0, 0, 0, 0.5);
-    content: '';
-    height: 100vh;
-    position: fixed;
-    pointer-events: none;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    transition: opacity 400ms ease;
-    width: 100vw;
-    z-index: -1;
-  }
+  .--contact {
+    margin-left: 4.8rem;
+    margin-top: 2.4rem;
 
-  &::after {
-    background: var(--policeBlue);
-    content: '';
-    height: 100vh;
-    width: 255px;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-  }
+    @include media(">=md") {
+      margin-left: auto;
+      margin-top: auto;
+    }
 
-  > li::after {
-    content: url("../../assets/backgrounds/bg-pattern-about-1-mobile-nav-1.svg");
-    display: none;
-    right: -10rem;
-    bottom: 0;
-    position: absolute;
+    a {
+      margin: 0;
+    }
   }
 }
 
-// Menu Icon
+
 .menu-icon {
   cursor: pointer;
   display: block;
   padding: 1.2rem 0;
   position: absolute;
-  right: 40px;
+  right: 4rem;
   user-select: none;
   justify-self: end;
   z-index: 2000;
@@ -68,7 +116,7 @@
   .navicon {
     background: #fff;
     display: block;
-    height: 3px;
+    height: .3rem;
     position: relative;
     transition: all .2s ease-out;
     top: 0;
@@ -86,11 +134,11 @@
     }
 
     &::before {
-      top: 8px;
+      top: .8rem;
     }
 
     &::after {
-      top: -8px
+      top: -.8rem;
     }
   }
 }
@@ -141,8 +189,8 @@ a.skip-main {
   position: absolute;
   top: -1000px;
   left: -1000px;
-  height: 1px;
-  width: 1px;
+  height: .1rem;
+  width: .1rem;
   text-align: left;
   overflow: hidden;
 }
@@ -157,7 +205,7 @@ a.skip-main:hover {
   overflow: visible;
 }
 
-@media (min-width: 48em) {
+@include media(">md") {
   .header .menu-icon {
     display: none;
   }

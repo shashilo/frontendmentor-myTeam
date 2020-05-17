@@ -33,6 +33,11 @@
   }
 
   .services {
+
+    @include media("<md") {
+      padding: 6.4rem 0;
+    }
+
     .accentBorder::before {
       margin-bottom: 5.4rem;
     }
@@ -81,6 +86,10 @@
   }
 
   .successStories {
+    @include media("<md") {
+      padding: 14rem 0;
+    }
+
     &::before {
       content: url("../assets/backgrounds/bg-pattern-home-4-about-3.svg");
     }
