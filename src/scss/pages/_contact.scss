@@ -1,0 +1,67 @@
+.contact {
+  .hero {
+    &::after {
+      content: url("../assets/backgrounds/bg-pattern-contact-2.svg");
+      right: -10rem;
+      bottom: -.8rem;
+
+      @include media("<md") {
+        bottom: -10rem;
+      }
+    }
+
+    .container {
+      &::before {
+        content: url("../assets/backgrounds/bg-pattern-about-2-contact-1.svg");
+        position: absolute;
+        left: -10rem;
+
+        @include media("<md") {
+          display: none;
+        }
+      }
+
+      .row {
+        @include media("<lg") {
+          grid-row-gap: 6.4rem;
+        }
+
+        @include media("<md") {
+          grid-row-gap: 5.6rem;
+        }
+      }
+    }
+
+    h2 {
+      margin-bottom: 4rem;
+
+      @include media(">md") {
+        margin-bottom: 2.4rem;
+      }
+
+      @include media(">lg") {
+        margin-bottom: 3.2rem;
+      }
+    }
+  }
+
+  .iconGroup {
+    display: grid;
+    grid-gap: .8rem;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  form {
+    input, textarea {
+      margin: .5rem 0;
+    }
+
+    [type="submit"] {
+      margin-top: 1.9rem;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+$cssgrid-columns: 12 !default;
+$cssgrid-grid-columns: $cssgrid-columns + 1 !default;
+$cssgrid-gutter-width: 30px !default;
+$cssgrid-margin: 15px !default;
+$cssgrid-margin-tablet: 12px !default;
+$cssgrid-margin-mobile: 5px !default;
+
+$cssgrid-breakpoints:
+        xs 320px,
+        sm 480px ,
+        md 768px,
+        lg 1024px,
+        xl 1200px !default;
+
+$cssgrid-max-width: 1110px !default;
+
+.container {
+  box-sizing: border-box;
+  max-width: $cssgrid-max-width;
+  margin: 0 auto;
+  padding: 0 $cssgrid-margin;
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, [col] 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: $cssgrid-margin-mobile;
+  grid-row-gap: $cssgrid-margin-mobile;
+
+  @media only screen and (min-width: 768px) {
+    grid-column-gap: $cssgrid-margin-tablet;
+    grid-row-gap: $cssgrid-margin-tablet;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    grid-column-gap: $cssgrid-margin;
+    grid-row-gap: $cssgrid-margin;
+  }
+}
+
+@each $breakpoint in $cssgrid-breakpoints {
+  $name: nth($breakpoint, 1);
+  $size: nth($breakpoint, 2);
+  @media only screen and (min-width: $size) {
+
+    @for $i from 1 through $cssgrid-columns {
+      .col-#{$name}-#{$i} {
+        grid-column: span #{$i};
+      }
+    }
+
+    @for $c from 1 through $cssgrid-grid-columns {
+      @for $r from 1 through $cssgrid-grid-columns {
+        .gridCol-#{$name}-#{$c}-#{$r} {
+          grid-column: #{$c}/#{$r};
+        }
+        .gridRow-#{$name}-#{$c}-#{$r} {
+          grid-row: #{$c}/#{$r};
+        }
+      }
+    }
+
+    .start-#{$name} {
+      justify-content: flex-start;
+    }
+
+    .center-#{$name} {
+      justify-content: center;
+    }
+
+    .end-#{$name} {
+      justify-content: flex-end;
+    }
+
+    .around-#{$name} {
+      justify-content: space-around;
+    }
+
+    .between-#{$name} {
+      justify-content: space-between;
+    }
+
+    .top-#{$name} {
+      align-items: flex-start;
+    }
+
+    .middle-#{$name} {
+      align-items: center;
+    }
+
+    .bottom-#{$name} {
+      align-items: flex-end;
+    }
+
+    .self-top-#{$name} {
+      align-self: flex-start;
+    }
+
+    .self-middle-#{$name} {
+      align-self: center;
+    }
+
+    .self-bottom-#{$name} {
+      align-self: flex-end;
+    }
+  }
+}

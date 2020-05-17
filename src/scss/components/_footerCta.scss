@@ -1,0 +1,34 @@
+.footer__cta {
+  padding: 7.6rem 0;
+
+  &::before {
+    bottom: -3rem;
+    content: url("../assets/backgrounds/bg-pattern-home-6-about-5.svg");
+    top: auto;
+  }
+
+  .row h2 {
+    margin: 0;
+  }
+
+  @include media("<md") {
+    .row {
+      display: block;
+
+      h2 {
+        margin-bottom: 2.4rem;
+      }
+    }
+
+    .-flexbox {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  @include media(">=xl") {
+    &::before {
+      bottom: -.8rem;
+    }
+  }
+}

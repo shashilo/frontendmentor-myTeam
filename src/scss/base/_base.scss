@@ -1,0 +1,88 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  background-color: var(--lightCoral);
+  box-sizing: border-box;
+
+  // Setup applications to use a 1/10 ratio for REM units
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  box-shadow: 0 0 1rem .5rem rgba(0, 0, 0, .2);
+  color: var(--white);
+  font: 600 1.8rem/2.8rem 'Livvic', sans-serif;
+  margin: 0 auto;
+  max-width: 144rem;
+}
+
+section {
+  overflow: hidden;
+  padding-top: 8.8rem;
+  padding-bottom: 8.8rem;
+  position: relative;
+
+  @include media(">=md") {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  @include media(">=lg") {
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+  }
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &.--bgTopHalf::before {
+    left: -10rem;
+  }
+
+  &.--bgBottomHalf::after {
+    right: -10rem;
+  }
+}
+
+picture {
+  display: inline-block;
+}
+
+a {
+  color: var(--white);
+  display: inline-block;
+  text-decoration: none;
+  transition: 300ms ease all;
+
+  &:hover {
+    color: var(--tertiaryColor);
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    padding: 0;
+  }
+}
+
+blockquote {
+  margin: 0;
+}

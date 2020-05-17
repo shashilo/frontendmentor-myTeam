@@ -1,0 +1,11 @@
+.socialMedia {
+  svg {
+    path {
+      transition: 300ms ease all;
+    }
+
+    &:hover path {
+      fill: var(--lightCoral);
+    }
+  }
+}
